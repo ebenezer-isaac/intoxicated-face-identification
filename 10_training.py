@@ -31,7 +31,7 @@ Y_test = []
 tf.random.set_seed(random_seed)
 np.random.seed(random_seed)
 
-positiveTrainSamples = glob.glob('../data/4_split/train/drunk/*')
+positiveTrainSamples = glob.glob('../dataset/7_main/train/drunk/*')
 print("Drunk Train Samples :",len(positiveTrainSamples))
 count = 1
 printProgressBar(0, len(positiveTrainSamples), prefix = 'Reading Drunk Train Samples:', suffix = 'Complete', length = 50)
@@ -41,7 +41,7 @@ for i in range(len(positiveTrainSamples)):
     printProgressBar(count, len(positiveTrainSamples), prefix = 'Reading Drunk Train Samples:', suffix = 'Complete', length = 50)
     count = count+1
 
-negativeTrainSamples = glob.glob('../data/4_split/train/sober/*')
+negativeTrainSamples = glob.glob('../dataset/7_main/train/sober/*')
 print("Sober Train Samples :",len(negativeTrainSamples))
 count = 1
 printProgressBar(0, len(negativeTrainSamples), prefix = 'Reading Sober Train Samples:', suffix = 'Complete', length = 50)
@@ -51,7 +51,7 @@ for i in range(len(negativeTrainSamples)):
     printProgressBar(count, len(negativeTrainSamples), prefix = 'Reading Sober Train Samples:', suffix = 'Complete', length = 50)
     count = count+1
 
-positiveTestSamples = glob.glob('../data/4_split/test/drunk/*')
+positiveTestSamples = glob.glob('../dataset/7_main/test/drunk/*')
 print("Drunk Test Samples :",len(positiveTestSamples))
 count = 1
 printProgressBar(0, len(positiveTestSamples), prefix = 'Reading Drunk Test Samples:', suffix = 'Complete', length = 50)
@@ -61,7 +61,7 @@ for i in range(len(positiveTestSamples)):
     printProgressBar(count, len(positiveTestSamples), prefix = 'Reading Drunk Test Samples:', suffix = 'Complete', length = 50)
     count = count+1
 
-negativeTestSamples = glob.glob('../data/4_split/test/sober/*')
+negativeTestSamples = glob.glob('../dataset/7_main/test/sober/*')
 print("Sober Test Samples :",len(negativeTestSamples))
 count = 1
 printProgressBar(0, len(negativeTestSamples), prefix = 'Reading Sober Test Samples:', suffix = 'Complete', length = 50)
@@ -114,7 +114,7 @@ tensorBoardCallback = TensorBoard(log_dir=log_filepath, histogram_freq=0)
 callbacks = [tensorBoardCallback]
 model_fit = model.fit(X_train, Y_train, batch_size=batch_size, epochs=epochs, validation_data=(X_test,Y_test))
 score=model.evaluate(X_test, Y_test, verbose=0)
-model.save_weights('model4.h5')
+model.save_weights('./files/model.h5')
 
 print("Model Fit :",model_fit)
 

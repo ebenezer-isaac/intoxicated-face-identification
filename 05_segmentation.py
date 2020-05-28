@@ -30,5 +30,5 @@ for file in files:
 		else:
 			state = "drunk"
 		image_count = image_count +1
-		cv2.imwrite('../4_segmented/{:02d}_{}_{:02d}.png'.format(count, state, index), image)
+		cv2.imwrite('../4_segmented/{:03d}_{}_{:02d}.png'.format(count, state, index), image)
 		printProgressBar(image_count, len(files)*4, prefix = 'Segmenting Images:', suffix = 'Complete', length = 50)

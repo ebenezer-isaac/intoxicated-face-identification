@@ -35,7 +35,7 @@ model.add(MaxPooling2D(pool_size=(2,2), strides=(2,2), padding='valid'))
 model.add(Flatten())
 model.add(Dense(10, activation='relu'))
 model.add(Dense(2, activation='softmax'))
-model.load_weights('model3.h5')
+model.load_weights('./files/model.h5')
 
 binary_dict = {0: "Sober", 1: "Drunk"}
 detector = dlib.get_frontal_face_detector()

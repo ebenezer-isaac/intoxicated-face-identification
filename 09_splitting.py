@@ -17,17 +17,16 @@ while len(test_list)<test_count:
 	else:
 		test_list.append(rand)
 print("Random Test Subjects :",test_list)
-os.chdir("./data/dataset")
-if os.path.isdir("../split"):
-	rmtree("../split/")
-os.mkdir("../split")   
-os.mkdir("../split/test")   
-os.mkdir("../split/test/sober") 
-os.mkdir("../split/test/drunk") 
-os.mkdir("../split/train")   
-os.mkdir("../split/train/sober") 
-os.mkdir("../split/train/drunk") 
-files = sorted(glob.glob('*'))
+if os.path.isdir("./dataset/7_main/"):
+	rmtree("./dataset/7_main/")
+os.mkdir("./dataset/7_main")   
+os.mkdir("./dataset/7_main/test")   
+os.mkdir("./dataset/7_main/test/sober") 
+os.mkdir("./dataset/7_main/test/drunk") 
+os.mkdir("./dataset/7_main/train")   
+os.mkdir("./dataset/7_main/train/sober") 
+os.mkdir("./dataset/7_main/train/drunk") 
+files = sorted(glob.glob('./dataset/6_combined/*'))
 no_of_files = len(files)
 printProgressBar(0, no_of_files, prefix = 'Progress:', suffix = 'Complete', length = 50)
 for i, file in enumerate(files):
@@ -35,12 +34,12 @@ for i, file in enumerate(files):
 	subject = int(subject[0])
 	if subject in test_list:
 		if (file.find('sober') != -1):
-			copyfile(file, "../split/test/sober/"+file)
+			copyfile(file, "./dataset/7_main/test/sober/"+file)
 		else:
-			copyfile(file, "../split/test/drunk/"+file)
+			copyfile(file, "./dataset/7_main/test/drunk/"+file)
 	else:
 		if (file.find('sober') != -1):
-			copyfile(file, "../split/train/sober/"+file)
+			copyfile(file, "./dataset/7_main/train/sober/"+file)
 		else:
-			copyfile(file, "../split/train/drunk/"+file)
+			copyfile(file, "./dataset/7_main/train/drunk/"+file)
 	printProgressBar(i + 1, no_of_files, prefix = 'Progress:', suffix = 'Complete', length = 50)

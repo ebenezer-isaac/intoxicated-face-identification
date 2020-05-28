@@ -20,11 +20,11 @@ for folder in folders:
 		dir_state = "sober_00"
 		if folder.find("sober")==-1:
 			dir_state = "drunk_03"
-		dir = "./dataset/3_combined/"
+		dir = "./dataset/6_combined/"
 		for file in file_list:
 			subject = folder.split("_")
 			subject = int(subject[len(subject)-1])
-			filename = dir+str(subject)+"_"+dir_state+"_"+str(count)
+			filename = dir+"{:03d}".format(int(subject))+"_"+dir_state+"_"+str(count)
 			print(filename)
 			copyfile(file, filename+".png")
 			count = count+1

@@ -42,10 +42,9 @@ contrast = {
 weather = {'Clouds': iaa.Clouds()}
 effects = {**meta, **arithmetic, **blur, **color, **contrast, **weather}
 
-os.chdir('../data/1_segmented')
-if os.path.isdir("../2_augmented"):
-	rmtree("../2_augmented/")
-os.mkdir("../2_augmented")
+if os.path.isdir("./dataset/5_augmented"):
+	rmtree("./dataset/5_augmented")
+os.mkdir("./dataset/5_augmented")
 
 count = 0
 printProgressBar(0, limit + 1000, prefix = 'Segmenting Images:', suffix = 'Complete', length = 50)
@@ -61,7 +60,7 @@ for i in range(2):
 			seq = aug_effects[0].to_deterministic()
 		else:
 			seq = iaa.Sequential(aug_effects).to_deterministic()
-		for file in glob.glob('*.png'):
+		for file in glob.glob('./dataset/4_segmented/*'):
 			img = cv2.imread(file, cv2.IMREAD_COLOR)
 			aug_img = seq.augment_image(img)
 			ext = reduce((lambda x, y: str(x) + '_' + str(y)), aug)
@@ -70,7 +69,7 @@ for i in range(2):
 				result.sort(key = calcBoxArea, reverse = True)
 				(x, y, w, h) = (result[0]['box'][0],result[0]['box'][1],result[0]['box'][2],result[0]['box'][3])
 				faceAligned = fa.align(aug_img, cv2.cvtColor(aug_img, cv2.COLOR_BGR2GRAY), dlib.rectangle(x,y,w+x,h+y))
-				cv2.imwrite('../2_augmented/{}_{}.png'.format(file.replace(".png",""),ext), faceAligned)
+				cv2.imwrite('./dataset/5_augmented/{}_{}.png'.format(file.replace(".png",""),ext), faceAligned)
 				count = count+1
 			printProgressBar(count, limit + 1000, prefix = 'Segmenting Images:', suffix = 'Complete', length = 50)
 			count += 1
