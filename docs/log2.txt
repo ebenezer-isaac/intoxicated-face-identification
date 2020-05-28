@@ -1,0 +1,114 @@
+Using TensorFlow backend.
+WARNING:root:Keras version 2.3.1 detected. Last version known to be fully compatible of Keras is 2.1.3 .
+WARNING:root:TensorFlow version 2.2.0-rc3 detected. Last version known to be fully compatible is 1.5.0 .
+5158
+5477
+2186
+2179
+Reading positive train image number  0
+Reading positive train image number  1000
+Reading positive train image number  2000
+Reading positive train image number  3000
+Reading positive train image number  4000
+Reading negative train image number  0
+Reading negative train image number  1000
+Reading negative train image number  2000
+Reading negative train image number  3000
+Reading negative train image number  4000
+Reading positive test image number  0
+Reading positive test image number  1000
+Reading negative test image number  0
+Reading negative test image number  1000
+2020-05-17 15:18:06.009076: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcuda.so.1
+2020-05-17 15:18:06.471643: E tensorflow/stream_executor/cuda/cuda_driver.cc:313] failed call to cuInit: CUDA_ERROR_NO_DEVICE: no CUDA-capable device is detected
+2020-05-17 15:18:06.475720: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (ebenezer-manjaro): /proc/driver/nvidia/version does not exist
+2020-05-17 15:18:07.095487: I tensorflow/core/platform/cpu_feature_guard.cc:143] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+2020-05-17 15:18:09.706359: I tensorflow/core/platform/profile_utils/cpu_utils.cc:102] CPU Frequency: 2195995000 Hz
+2020-05-17 15:18:09.780096: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x7f7a38000b60 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2020-05-17 15:18:09.780180: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2020-05-17 15:18:22.445068: I tensorflow/core/profiler/lib/profiler_session.cc:159] Profiler session started.
+Train on 10000 samples, validate on 3000 samples
+Epoch 1/40
+10000/10000 [==============================] - 43s 4ms/step - loss: 0.6786 - accuracy: 0.5683 - val_loss: 0.6695 - val_accuracy: 0.6127
+Epoch 2/40
+10000/10000 [==============================] - 42s 4ms/step - loss: 0.5841 - accuracy: 0.6925 - val_loss: 0.5983 - val_accuracy: 0.6853
+Epoch 3/40
+10000/10000 [==============================] - 42s 4ms/step - loss: 0.4725 - accuracy: 0.7645 - val_loss: 0.6470 - val_accuracy: 0.6437
+Epoch 4/40
+10000/10000 [==============================] - 44s 4ms/step - loss: 0.4150 - accuracy: 0.8041 - val_loss: 0.6185 - val_accuracy: 0.7053
+Epoch 5/40
+10000/10000 [==============================] - 44s 4ms/step - loss: 0.3665 - accuracy: 0.8299 - val_loss: 0.6419 - val_accuracy: 0.6923
+Epoch 6/40
+10000/10000 [==============================] - 44s 4ms/step - loss: 0.3263 - accuracy: 0.8517 - val_loss: 0.7181 - val_accuracy: 0.7107
+Epoch 7/40
+10000/10000 [==============================] - 44s 4ms/step - loss: 0.2935 - accuracy: 0.8674 - val_loss: 0.7461 - val_accuracy: 0.7230
+Epoch 8/40
+10000/10000 [==============================] - 44s 4ms/step - loss: 0.2653 - accuracy: 0.8838 - val_loss: 0.7731 - val_accuracy: 0.7147
+Epoch 9/40
+10000/10000 [==============================] - 44s 4ms/step - loss: 0.2381 - accuracy: 0.8956 - val_loss: 0.8400 - val_accuracy: 0.6970
+Epoch 10/40
+10000/10000 [==============================] - 44s 4ms/step - loss: 0.2117 - accuracy: 0.9089 - val_loss: 0.8393 - val_accuracy: 0.6960
+Epoch 11/40
+10000/10000 [==============================] - 44s 4ms/step - loss: 0.2186 - accuracy: 0.9040 - val_loss: 0.8322 - val_accuracy: 0.7133
+Epoch 12/40
+10000/10000 [==============================] - 44s 4ms/step - loss: 0.1758 - accuracy: 0.9259 - val_loss: 0.9681 - val_accuracy: 0.6980
+Epoch 13/40
+10000/10000 [==============================] - 44s 4ms/step - loss: 0.1771 - accuracy: 0.9273 - val_loss: 0.9140 - val_accuracy: 0.6623
+Epoch 14/40
+10000/10000 [==============================] - 44s 4ms/step - loss: 0.1539 - accuracy: 0.9367 - val_loss: 1.0980 - val_accuracy: 0.6530
+Epoch 15/40
+10000/10000 [==============================] - 44s 4ms/step - loss: 0.1410 - accuracy: 0.9425 - val_loss: 1.0796 - val_accuracy: 0.6560
+Epoch 16/40
+10000/10000 [==============================] - 44s 4ms/step - loss: 0.1328 - accuracy: 0.9481 - val_loss: 1.1464 - val_accuracy: 0.6613
+Epoch 17/40
+10000/10000 [==============================] - 44s 4ms/step - loss: 0.1277 - accuracy: 0.9492 - val_loss: 1.1553 - val_accuracy: 0.6630
+Epoch 18/40
+10000/10000 [==============================] - 44s 4ms/step - loss: 0.1204 - accuracy: 0.9520 - val_loss: 1.1858 - val_accuracy: 0.6617
+Epoch 19/40
+10000/10000 [==============================] - 44s 4ms/step - loss: 0.1104 - accuracy: 0.9554 - val_loss: 1.2361 - val_accuracy: 0.6617
+Epoch 20/40
+10000/10000 [==============================] - 44s 4ms/step - loss: 0.1071 - accuracy: 0.9571 - val_loss: 1.3447 - val_accuracy: 0.6603
+Epoch 21/40
+10000/10000 [==============================] - 44s 4ms/step - loss: 0.1078 - accuracy: 0.9574 - val_loss: 1.2447 - val_accuracy: 0.6667
+Epoch 22/40
+10000/10000 [==============================] - 44s 4ms/step - loss: 0.0904 - accuracy: 0.9645 - val_loss: 1.4089 - val_accuracy: 0.6603
+Epoch 23/40
+10000/10000 [==============================] - 44s 4ms/step - loss: 0.0924 - accuracy: 0.9629 - val_loss: 1.3478 - val_accuracy: 0.6603
+Epoch 24/40
+10000/10000 [==============================] - 44s 4ms/step - loss: 0.0972 - accuracy: 0.9620 - val_loss: 1.3530 - val_accuracy: 0.6547
+Epoch 25/40
+10000/10000 [==============================] - 44s 4ms/step - loss: 0.0832 - accuracy: 0.9688 - val_loss: 1.4780 - val_accuracy: 0.6547
+Epoch 26/40
+10000/10000 [==============================] - 44s 4ms/step - loss: 0.0743 - accuracy: 0.9707 - val_loss: 1.5255 - val_accuracy: 0.6680
+Epoch 27/40
+10000/10000 [==============================] - 44s 4ms/step - loss: 0.0773 - accuracy: 0.9700 - val_loss: 1.5030 - val_accuracy: 0.6627
+Epoch 28/40
+10000/10000 [==============================] - 44s 4ms/step - loss: 0.0741 - accuracy: 0.9716 - val_loss: 1.3957 - val_accuracy: 0.6713
+Epoch 29/40
+10000/10000 [==============================] - 44s 4ms/step - loss: 0.0715 - accuracy: 0.9734 - val_loss: 1.7100 - val_accuracy: 0.6590
+Epoch 30/40
+10000/10000 [==============================] - 44s 4ms/step - loss: 0.0692 - accuracy: 0.9725 - val_loss: 1.6599 - val_accuracy: 0.6547
+Epoch 31/40
+10000/10000 [==============================] - 44s 4ms/step - loss: 0.0622 - accuracy: 0.9764 - val_loss: 1.5746 - val_accuracy: 0.6490
+Epoch 32/40
+10000/10000 [==============================] - 44s 4ms/step - loss: 0.0656 - accuracy: 0.9748 - val_loss: 1.6259 - val_accuracy: 0.6627
+Epoch 33/40
+10000/10000 [==============================] - 44s 4ms/step - loss: 0.0645 - accuracy: 0.9760 - val_loss: 1.6392 - val_accuracy: 0.6587
+Epoch 34/40
+10000/10000 [==============================] - 44s 4ms/step - loss: 0.0547 - accuracy: 0.9787 - val_loss: 1.7223 - val_accuracy: 0.6503
+Epoch 35/40
+10000/10000 [==============================] - 44s 4ms/step - loss: 0.0515 - accuracy: 0.9808 - val_loss: 1.8024 - val_accuracy: 0.6547
+Epoch 36/40
+10000/10000 [==============================] - 44s 4ms/step - loss: 0.0589 - accuracy: 0.9783 - val_loss: 1.6571 - val_accuracy: 0.6713
+Epoch 37/40
+10000/10000 [==============================] - 44s 4ms/step - loss: 0.0484 - accuracy: 0.9804 - val_loss: 1.8522 - val_accuracy: 0.6743
+Epoch 38/40
+10000/10000 [==============================] - 44s 4ms/step - loss: 0.0461 - accuracy: 0.9832 - val_loss: 1.8183 - val_accuracy: 0.6557
+Epoch 39/40
+10000/10000 [==============================] - 44s 4ms/step - loss: 0.0479 - accuracy: 0.9813 - val_loss: 1.8464 - val_accuracy: 0.6660
+Epoch 40/40
+10000/10000 [==============================] - 44s 4ms/step - loss: 0.0492 - accuracy: 0.9811 - val_loss: 1.7088 - val_accuracy: 0.6587
+Traceback (most recent call last):
+  File "6_training.py", line 112, in <module>
+    model.fit_generator(datagen.flow(X_train, Y_train,batch_size=batch_size),
+NameError: name 'datagen' is not defined
