@@ -1,13 +1,16 @@
 import cv2, os, glob, sys, random, itertools, dlib
-from utilities import printProgressBar
+from files.utilities import printProgressBar
 from shutil import rmtree
 import zipfile
 
 if os.path.isdir('./dataset/3_wine'):
 	rmtree('./dataset/3_wine')
-os.mkdir('./dataset/3_wine')   
+os.mkdir('./dataset/3_wine')
+if os.path.isdir('./dataset/4_segmented'):
+	rmtree('./dataset/4_segmented')
+os.mkdir('./dataset/4_segmented')   
 
-with zipfile.ZipFile("./files/wine_project.zip" 'r') as zip_ref:
+with zipfile.ZipFile("./files/wine_project.zip") as zip_ref:
     zip_ref.extractall('./dataset/3_wine')
 
 count = 0
@@ -30,5 +33,5 @@ for file in files:
 		else:
 			state = "drunk"
 		image_count = image_count +1
-		cv2.imwrite('../4_segmented/{:03d}_{}_{:02d}.png'.format(count, state, index), image)
+		cv2.imwrite('./dataset/4_segmented/{:03d}_{}_{:02d}.png'.format(count, state, index), image)
 		printProgressBar(image_count, len(files)*4, prefix = 'Segmenting Images:', suffix = 'Complete', length = 50)

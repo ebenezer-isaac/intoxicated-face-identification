@@ -1,15 +1,17 @@
 import imgaug as ia
 from imgaug import augmenters as iaa
 import numpy as np
-import cv2, itertools, os, glob, random
+import cv2, itertools, os, glob, random, dlib
 from functools import reduce
-from utilities import printProgressBar
+from files.utilities import printProgressBar, calcBoxArea
 from shutil import rmtree
+from mtcnn.mtcnn import MTCNN
+from imutils.face_utils import FaceAligner
 
 mtcnn = MTCNN()
-fa = FaceAligner(dlib.shape_predictor("shape.dat"), desiredFaceWidth=100)
+fa = FaceAligner(dlib.shape_predictor("./files/shape.dat"), desiredFaceWidth=100)
 
-limit = 10000
+limit = 20000
 
 meta = {'noop': iaa.Noop(), 'shuffle': iaa.ChannelShuffle(p=1.0)}
 arithmetic = {
@@ -69,7 +71,7 @@ for i in range(2):
 				result.sort(key = calcBoxArea, reverse = True)
 				(x, y, w, h) = (result[0]['box'][0],result[0]['box'][1],result[0]['box'][2],result[0]['box'][3])
 				faceAligned = fa.align(aug_img, cv2.cvtColor(aug_img, cv2.COLOR_BGR2GRAY), dlib.rectangle(x,y,w+x,h+y))
-				cv2.imwrite('./dataset/5_augmented/{}_{}.png'.format(file.replace(".png",""),ext), faceAligned)
+				cv2.imwrite('./dataset/5_augmented/{}_{}.png'.format(file.replace("./dataset/4_segmented/",""),ext), faceAligned)
 				count = count+1
 			printProgressBar(count, limit + 1000, prefix = 'Segmenting Images:', suffix = 'Complete', length = 50)
 			count += 1

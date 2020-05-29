@@ -1,12 +1,14 @@
 import glob, os
 from shutil import copyfile, rmtree
 from random import randint
+from files.utilities import printProgressBar
+
 folders = sorted(glob.glob("./dataset/2_cluster/*"))
 count = 1
-for folder in folders:
+printProgressBar(count,len(folders)*8, prefix = 'Progress:', suffix = 'Complete', length = 50)
+for i, folder in enumerate(folders):
 	files = sorted(glob.glob(folder+"/*"))
 	if files:
-		print(folder+"/ : ",len(files))
 		limit = 8
 		if len(files)<limit:
 			limit = len(files)
@@ -23,8 +25,11 @@ for folder in folders:
 		dir = "./dataset/6_combined/"
 		for file in file_list:
 			subject = folder.split("_")
-			subject = int(subject[len(subject)-1])
+			subject = int(subject[len(subject)-1])+53
 			filename = dir+"{:03d}".format(int(subject))+"_"+dir_state+"_"+str(count)
-			print(filename)
 			copyfile(file, filename+".png")
 			count = count+1
+			printProgressBar(count,len(folders)*8, prefix = 'Progress:', suffix = 'Complete', length = 50)
+	count = i*8
+	printProgressBar(count,len(folders)*8, prefix = 'Progress:', suffix = 'Complete', length = 50)
+printProgressBar(len(folders)*8,len(folders)*8, prefix = 'Progress:', suffix = 'Complete', length = 50)
