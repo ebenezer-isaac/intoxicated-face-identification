@@ -2,11 +2,15 @@ from keras.models import Sequential
 from keras.layers import Dense, Dropout, Flatten
 from keras.layers import Conv2D, MaxPooling2D
 import numpy as np
-import tensorflow as tf
-import glob, cv2, dlib, pickle
+import glob, cv2, dlib, pickle, os
 from imutils.face_utils import FaceAligner
 from mtcnn.mtcnn import MTCNN
 from files.utilities import calcBoxArea
+from files.utilities import printProgressBar
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
+import tensorflow as tf
+tf.get_logger().setLevel('INFO')
+tf.autograph.set_verbosity(1)
 
 nImageRows = 100
 nImageCols = 100
@@ -38,8 +42,12 @@ predicted = []
 
 states = ["sober","drunk"]
 binary_dict = {0: "sober", 1: "drunk"}
-for index, state in enumerate(states):
-	for image_path in glob.glob("./dataset/7_main/test/"+str(state)+"/*"):
+
+error_count = 0
+for state in states:
+	images = glob.glob("./dataset/7_main/test/"+str(state)+"/*")
+	printProgressBar(0, len(images), prefix = "Predicting "+state+" Images", suffix = "Complete", length = 50)
+	for index, image_path in enumerate(images):
 		image = cv2.imread(image_path)
 		result = mtcnn.detect_faces(image)
 		if result:
@@ -51,9 +59,11 @@ for index, state in enumerate(states):
 			maxindex = int(np.argmax(prediction))
 			actual.append(state)
 			predicted.append(binary_dict[maxindex])
-			print("Image : "+str(image_path)+"\nPrediction : "+str(prediction)+"\nmaxindex : "+str(maxindex)+"\nExpected : "+str(state)+"\nPredicted : "+str(binary_dict[maxindex]))
 		else:
-			print("Image : "+str(image_path)+"\nFailed to identify face !!")
+			error_count = error_count +1
+		printProgressBar(index, len(images), prefix = "Predicting "+state+" Images", suffix = "Complete", length = 50)
+	print("")
+print("Errors :",error_count)
 f = open("./files/confusion_matrix.pickle", "wb")
 f.write(pickle.dumps([actual,predicted]))
 f.close()

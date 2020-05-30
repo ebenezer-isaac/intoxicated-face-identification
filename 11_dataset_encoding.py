@@ -1,38 +1,62 @@
-from keras.preprocessing.image import ImageDataGenerator
-from keras.models import Sequential
-from sklearn.model_selection import train_test_split
-from keras.layers import Dense, Dropout, Flatten, Conv2D, MaxPooling2D
-from keras.callbacks import TensorBoard
-from keras import optimizers
-from skimage import io
 from skimage.transform import resize
-from keras.utils import to_categorical
 import numpy as np
-import random, glob, os
+from skimage import io
+import random, glob, os, pickle
+from keras.utils import to_categorical
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
-import tensorflow as tf
 from files.utilities import printProgressBar
-tf.get_logger().setLevel('INFO')
-tf.autograph.set_verbosity(1)
 
-epochs = 10
-nChannels = 3
 random_seed = 1
 batch_size = 16
 num_classes = 2
 nImageRows = 100
 nImageCols = 100
-log_filepath = 'log.txt'
 X_train = []
 Y_train = []
 X_test = []
 Y_test = []
 
-tf.random.set_seed(random_seed)
 np.random.seed(random_seed)
 
 positiveTrainSamples = glob.glob('./dataset/7_main/train/drunk/*')
 print("Drunk Train Samples :",len(positiveTrainSamples))
+negativeTrainSamples = glob.glob('./dataset/7_main/train/sober/*')
+print("Sober Train Samples :",len(negativeTrainSamples))
+positiveTestSamples = glob.glob('./dataset/7_main/test/drunk/*')
+print("Drunk Test Samples  :",len(positiveTestSamples))
+negativeTestSamples = glob.glob('./dataset/7_main/test/sober/*')
+print("Sober Test Samples  :",len(negativeTestSamples))
+
+#UNCOMMENT TO ADJUST SAMPLE SIZE TO BE EQUAL
+"""
+adjusted_train = len(positiveTrainSamples)
+if adjusted_train > len(negativeTrainSamples):
+    adjusted_train = len(negativeTrainSamples)
+adjusted_train = round(int(adjusted_train * 10 ** -1) / 10 ** -1)
+adjusted_test = len(positiveTestSamples)
+if adjusted_test > len(negativeTestSamples):
+    adjusted_test = negativeTestSamples
+adjusted_test = round(int(adjusted_test * 10 ** -1) / 10 ** -1)
+
+while len(positiveTrainSamples)>adjusted_train:
+    rand = random.randint(0,len(positiveTrainSamples)-1)
+    del positiveTrainSamples[rand]
+print("Adjusted Drunk Train Samples :",len(positiveTrainSamples))
+while len(negativeTrainSamples)>adjusted_train:
+    rand = random.randint(0,len(negativeTrainSamples)-1)
+    del negativeTrainSamples[rand]
+print("Adjusted Sober Train Samples :",len(negativeTrainSamples))
+
+while len(positiveTestSamples)>adjusted_test:
+    rand = random.randint(0,len(positiveTestSamples)-1)
+    del positiveTestSamples[rand]
+print("Adjusted Drunk Test Samples  :",len(positiveTestSamples))
+while len(negativeTestSamples)>adjusted_test:
+    rand = random.randint(0,len(negativeTestSamples)-1)
+    del negativeTestSamples[rand]
+print("Adjusted Sober Test Samples  :",len(negativeTestSamples))
+"""
+
 count = 1
 printProgressBar(0, len(positiveTrainSamples), prefix = 'Reading Drunk Train Samples:', suffix = 'Complete', length = 50)
 for i in range(len(positiveTrainSamples)):
@@ -41,8 +65,7 @@ for i in range(len(positiveTrainSamples)):
     printProgressBar(count, len(positiveTrainSamples), prefix = 'Reading Drunk Train Samples :', suffix = 'Complete', length = 50)
     count = count+1
 
-negativeTrainSamples = glob.glob('./dataset/7_main/train/sober/*')
-print("Sober Train Samples :",len(negativeTrainSamples))
+
 count = 1
 printProgressBar(0, len(negativeTrainSamples), prefix = 'Reading Sober Train Samples:', suffix = 'Complete', length = 50)
 for i in range(len(negativeTrainSamples)):
@@ -51,8 +74,7 @@ for i in range(len(negativeTrainSamples)):
     printProgressBar(count, len(negativeTrainSamples), prefix = 'Reading Sober Train Samples :', suffix = 'Complete', length = 50)
     count = count+1
 
-positiveTestSamples = glob.glob('./dataset/7_main/test/drunk/*')
-print("Drunk Test Samples  :",len(positiveTestSamples))
+
 count = 1
 printProgressBar(0, len(positiveTestSamples), prefix = 'Reading Drunk Test Samples:', suffix = 'Complete', length = 50)
 for i in range(len(positiveTestSamples)):
@@ -61,8 +83,7 @@ for i in range(len(positiveTestSamples)):
     printProgressBar(count, len(positiveTestSamples), prefix = 'Reading Drunk Test Samples  :', suffix = 'Complete', length = 50)
     count = count+1
 
-negativeTestSamples = glob.glob('./dataset/7_main/test/sober/*')
-print("Sober Test Samples  :",len(negativeTestSamples))
+
 count = 1
 printProgressBar(0, len(negativeTestSamples), prefix = 'Reading Sober Test Samples:', suffix = 'Complete', length = 50)
 for i in range(len(negativeTestSamples)):
@@ -77,7 +98,6 @@ Y_train = np.array(Y_train)
 X_test = np.array(X_test)
 Y_test = np.array(Y_test)
 
-
 mean = np.array([0.5,0.5,0.5])
 std = np.array([1,1,1])
 X_train = X_train.astype('float')
@@ -89,35 +109,20 @@ num_iterations = int(len(X_train)/batch_size) + 1
 Y_train = to_categorical(Y_train, num_classes)
 Y_test = to_categorical(Y_test, num_classes)
 
-
-modelInputShape = (nImageRows, nImageCols, nChannels)
-model = Sequential()
-model.add(Conv2D(8,kernel_size=(3,3), activation='relu', strides=(1,1), padding='same', input_shape=modelInputShape))
-model.add(MaxPooling2D(pool_size=(2,2), strides=(2,2), padding='valid'))
-model.add(Dropout(0.25))
-model.add(Conv2D(16,kernel_size=(3,3), padding='same', activation='relu'))
-model.add(MaxPooling2D(pool_size=(2,2), strides=(2,2), padding='valid'))
-model.add(Dropout(0.25))
-model.add(Conv2D(16,kernel_size=(3,3), padding='same', activation='relu'))
-model.add(MaxPooling2D(pool_size=(2,2), strides=(2,2), padding='valid'))
-model.add(Conv2D(8,kernel_size=(3,3), padding='same', activation='relu'))
-model.add(MaxPooling2D(pool_size=(2,2), strides=(2,2), padding='valid'))
-model.add(Flatten())
-model.add(Dense(10, activation='relu'))
-model.add(Dense(2, activation='softmax'))
-
-model.summary()
-
-sgd = optimizers.SGD(lr=.001, momentum=0.9, decay=0.000005, nesterov=False)
-model.compile(loss='categorical_crossentropy', optimizer=sgd, metrics=['accuracy'])
-tensorBoardCallback = TensorBoard(log_dir=log_filepath, histogram_freq=0)
-callbacks = [tensorBoardCallback]
-model_fit = model.fit(X_train, Y_train, batch_size=batch_size, epochs=epochs, validation_data=(X_test,Y_test))
-score=model.evaluate(X_test, Y_test, verbose=0)
-model.save_weights('./files/model.h5')
-
-print("Model Fit :",model_fit)
-
-print("Score :", score)
-print("Test Loss :", score[0])
-print("Test Accuracy :", score[1])
+print("Saving Pickle Files")
+f = open("./files/x_train.pickle", "wb")
+f.write(pickle.dumps(X_train))
+f.close()
+print("Saved ./files/x_train.pickle")
+f = open("./files/y_train.pickle", "wb")
+f.write(pickle.dumps(Y_train))
+f.close()
+print("Saved ./files/y_train.pickle")
+f = open("./files/x_test.pickle", "wb")
+f.write(pickle.dumps(X_test))
+f.close()
+print("Saved ./files/x_test.pickle")
+f = open("./files/y_test.pickle", "wb")
+f.write(pickle.dumps(Y_test))
+f.close()
+print("Saved ./files/y_test.pickle")

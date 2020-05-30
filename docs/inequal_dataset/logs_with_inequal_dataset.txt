@@ -1,0 +1,200 @@
+[ebenezer@ebenezer internship]$ python 11_dataset_encoding.py 
+Using TensorFlow backend.
+2020-05-31 00:42:49.127757: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudart.so.10.2
+Drunk Train Samples : 1762
+Sober Train Samples : 1943
+Drunk Test Samples  : 446
+Sober Test Samples  : 513
+Reading Drunk Train Samples : |██████████████████████████████████████████████████| 100.0% Complete
+Reading Sober Train Samples : |██████████████████████████████████████████████████| 100.0% Complete
+Reading Drunk Test Samples  : |██████████████████████████████████████████████████| 100.0% Complete
+Reading Sober Test Samples  : |██████████████████████████████████████████████████| 100.0% Complete
+Saving Pickle Files
+Saved ./files/x_train.pickle
+Saved ./files/y_train.pickle
+Saved ./files/x_test.pickle
+Saved ./files/y_test.pickle
+
+
+
+[ebenezer@ebenezer internship]$ python 12_tensorflow_training.py    
+Using TensorFlow backend.
+2020-05-31 00:45:10.474401: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudart.so.10.2
+Reading Files
+X_train Length : 3705
+Y_train Length : 3705
+X_test Length : 959
+Y_test Length : 959
+
+Tune using inter_op_parallelism_threads for best performance.
+Model: "sequential_1"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+conv2d_1 (Conv2D)            (None, 100, 100, 8)       224       
+_________________________________________________________________
+max_pooling2d_1 (MaxPooling2 (None, 50, 50, 8)         0         
+_________________________________________________________________
+dropout_1 (Dropout)          (None, 50, 50, 8)         0         
+_________________________________________________________________
+conv2d_2 (Conv2D)            (None, 50, 50, 16)        1168      
+_________________________________________________________________
+max_pooling2d_2 (MaxPooling2 (None, 25, 25, 16)        0         
+_________________________________________________________________
+dropout_2 (Dropout)          (None, 25, 25, 16)        0         
+_________________________________________________________________
+conv2d_3 (Conv2D)            (None, 25, 25, 16)        2320      
+_________________________________________________________________
+max_pooling2d_3 (MaxPooling2 (None, 12, 12, 16)        0         
+_________________________________________________________________
+conv2d_4 (Conv2D)            (None, 12, 12, 8)         1160      
+_________________________________________________________________
+max_pooling2d_4 (MaxPooling2 (None, 6, 6, 8)           0         
+_________________________________________________________________
+flatten_1 (Flatten)          (None, 288)               0         
+_________________________________________________________________
+dense_1 (Dense)              (None, 10)                2890      
+_________________________________________________________________
+dense_2 (Dense)              (None, 2)                 22        
+=================================================================
+Total params: 7,784
+Trainable params: 7,784
+Non-trainable params: 0
+_________________________________________________________________
+2020-05-31 00:45:17.811744: I tensorflow/core/profiler/lib/profiler_session.cc:159] Profiler session started.
+2020-05-31 00:45:17.812522: I tensorflow/core/profiler/internal/gpu/cupti_tracer.cc:1363] Profiler found 1 GPUs
+2020-05-31 00:45:17.826703: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcupti.so.10.2
+2020-05-31 00:45:17.937674: I tensorflow/core/profiler/internal/gpu/cupti_tracer.cc:1479] CUPTI activity buffer flushed
+Train on 3705 samples, validate on 959 samples
+Epoch 1/10
+2020-05-31 00:45:19.505580: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcublas.so.10
+2020-05-31 00:45:19.715491: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudnn.so.7
+3705/3705 [==============================] - 13s 4ms/step - loss: 0.6951 - accuracy: 0.5101 - val_loss: 0.6906 - val_accuracy: 0.5391
+Epoch 2/10
+3705/3705 [==============================] - 9s 2ms/step - loss: 0.6848 - accuracy: 0.5576 - val_loss: 0.6929 - val_accuracy: 0.5349
+Epoch 3/10
+3705/3705 [==============================] - 9s 2ms/step - loss: 0.6765 - accuracy: 0.5908 - val_loss: 0.6714 - val_accuracy: 0.5829
+Epoch 4/10
+3705/3705 [==============================] - 9s 2ms/step - loss: 0.6492 - accuracy: 0.6318 - val_loss: 0.6563 - val_accuracy: 0.5714
+Epoch 5/10
+3705/3705 [==============================] - 9s 2ms/step - loss: 0.6125 - accuracy: 0.6610 - val_loss: 0.6108 - val_accuracy: 0.6517
+Epoch 6/10
+3705/3705 [==============================] - 9s 2ms/step - loss: 0.5606 - accuracy: 0.7196 - val_loss: 0.5857 - val_accuracy: 0.6747
+Epoch 7/10
+3705/3705 [==============================] - 9s 2ms/step - loss: 0.5275 - accuracy: 0.7360 - val_loss: 0.5727 - val_accuracy: 0.6778
+Epoch 8/10
+3705/3705 [==============================] - 9s 2ms/step - loss: 0.5058 - accuracy: 0.7447 - val_loss: 0.5844 - val_accuracy: 0.6851
+Epoch 9/10
+3705/3705 [==============================] - 9s 2ms/step - loss: 0.4902 - accuracy: 0.7565 - val_loss: 0.5502 - val_accuracy: 0.6997
+Epoch 10/10
+3705/3705 [==============================] - 9s 2ms/step - loss: 0.4726 - accuracy: 0.7671 - val_loss: 0.5434 - val_accuracy: 0.7226
+Model Fit : <keras.callbacks.callbacks.History object at 0x7f0dbc078fa0>
+Score : [0.5433846925296922, 0.7226277589797974]
+Test Loss : 0.5433846925296922
+Test Accuracy : 0.7226277589797974
+
+
+
+[ebenezer@ebenezer internship]$ python 14_confusion_matrix.py 
+Using TensorFlow backend.
+2020-05-31 00:47:05.980564: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1561] Found device 0 with properties: 
+pciBusID: 0000:08:00.0 name: GeForce 920M computeCapability: 3.5
+2020-05-31 00:47:05.981882: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1703] Adding visible gpu devices: 0
+3.5
+Predicting sober Images |█████████████████████████████████████████████████-| 99.8% Complete
+Predicting drunk Images |█████████████████████████████████████████████████-| 99.8% Complete
+Errors : 12
+
+
+
+[ebenezer@ebenezer internship]$ python 15_plot_confusion.py 
+Accuracy Score : 0.6240760295670539
+Report         :
+               precision    recall  f1-score   support
+
+       drunk       0.56      0.80      0.66       434
+       sober       0.74      0.48      0.58       513
+
+    accuracy                           0.62       947
+   macro avg       0.65      0.64      0.62       947
+weighted avg       0.66      0.62      0.62       947
+
+/home/ebenezer/.local/lib/python3.8/site-packages/sklearn/utils/validation.py:68: FutureWarning: Pass labels=['sober', 'drunk'] as keyword args. From version 0.25 passing these as positional arguments will result in an error
+  warnings.warn("Pass {} as keyword args. From version 0.25 "
+[[244 269]
+ [ 87 347]]
+
+Confusion Matrix has been saved to ./docs/confusion_matrix_1.png and ./docs/confusion_matrix_2.png
+[ebenezer@ebenezer internship]$ python 16_logistical_regression_train.py 
+Reading Files
+X_train Size : 3705
+Y_train Size : 3705
+Training Logistic Regression Model
+         This may take some time depending on your PC
+
+Verbose Logging Below:
+[Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
+RUNNING THE L-BFGS-B CODE
+
+           * * *
+
+Machine precision = 2.220D-16
+ N =        30001     M =           10
+ This problem is unconstrained.
+
+At X0         0 variables are exactly at the bounds
+
+At iterate    0    f=  2.56811D+03    |proj g|=  1.64991D+02
+
+At iterate   50    f=  1.19457D+02    |proj g|=  2.24550D+00
+
+At iterate  100    f=  7.14464D+01    |proj g|=  3.76164D-01
+
+At iterate  150    f=  6.78561D+01    |proj g|=  1.78545D-01
+
+At iterate  200    f=  6.73199D+01    |proj g|=  1.91659D-01
+
+At iterate  250    f=  6.72146D+01    |proj g|=  1.61464D-01
+
+At iterate  300    f=  6.71897D+01    |proj g|=  1.30751D-01
+
+At iterate  350    f=  6.71611D+01    |proj g|=  7.72803D-02
+
+At iterate  400    f=  6.71270D+01    |proj g|=  3.24092D-02
+
+At iterate  450    f=  6.71071D+01    |proj g|=  1.59237D-02
+
+At iterate  500    f=  6.71020D+01    |proj g|=  2.11449D-02
+
+At iterate  550    f=  6.71007D+01    |proj g|=  3.11358D-03
+
+At iterate  600    f=  6.71005D+01    |proj g|=  1.31470D-03
+
+           * * *
+
+Tit   = total number of iterations
+Tnf   = total number of function evaluations
+Tnint = total number of segments explored during Cauchy searches
+Skip  = number of BFGS updates skipped
+Nact  = number of active bounds at final generalized Cauchy point
+Projg = norm of the final projected gradient
+F     = final function value
+
+           * * *
+
+   N    Tit     Tnf  Tnint  Skip  Nact     Projg        F
+30001    626    705      1     0     0   1.720D-03   6.710D+01
+  F =   67.100466842094647     
+
+CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH             
+[Parallel(n_jobs=1)]: Done   1 out of   1 | elapsed:  3.6min finished
+Model has been trained
+Model has been saved to ./files/loginstic_regression.pickle
+
+
+
+[ebenezer@ebenezer internship]$ python 17_logistical_regression_plot.py 
+Reading Files
+X_test Size : 959
+Y_test Size : 959
+0.7122002085505735
