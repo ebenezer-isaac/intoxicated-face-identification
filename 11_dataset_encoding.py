@@ -62,7 +62,7 @@ printProgressBar(0, len(positiveTrainSamples), prefix = 'Reading Drunk Train Sam
 for i in range(len(positiveTrainSamples)):
     X_train.append(resize(io.imread(positiveTrainSamples[i]), (nImageRows, nImageCols)))
     Y_train.append(1)
-    printProgressBar(count, len(positiveTrainSamples), prefix = 'Reading Drunk Train Samples :', suffix = 'Complete', length = 50)
+    printProgressBar(count, len(positiveTrainSamples), prefix = 'Reading Drunk Train Samples  :', suffix = 'Complete', length = 50)
     count = count+1
 
 
@@ -71,7 +71,7 @@ printProgressBar(0, len(negativeTrainSamples), prefix = 'Reading Sober Train Sam
 for i in range(len(negativeTrainSamples)):
     X_train.append(resize(io.imread(negativeTrainSamples[i]), (nImageRows, nImageCols)))
     Y_train.append(0)
-    printProgressBar(count, len(negativeTrainSamples), prefix = 'Reading Sober Train Samples :', suffix = 'Complete', length = 50)
+    printProgressBar(count, len(negativeTrainSamples), prefix = 'Reading Sober Train Samples  :', suffix = 'Complete', length = 50)
     count = count+1
 
 
@@ -80,7 +80,7 @@ printProgressBar(0, len(positiveTestSamples), prefix = 'Reading Drunk Test Sampl
 for i in range(len(positiveTestSamples)):
     X_test.append(resize(io.imread(positiveTestSamples[i]), (nImageRows, nImageCols)))
     Y_test.append(1)
-    printProgressBar(count, len(positiveTestSamples), prefix = 'Reading Drunk Test Samples  :', suffix = 'Complete', length = 50)
+    printProgressBar(count, len(positiveTestSamples), prefix = 'Reading Drunk Test Samples   :', suffix = 'Complete', length = 50)
     count = count+1
 
 
@@ -89,7 +89,7 @@ printProgressBar(0, len(negativeTestSamples), prefix = 'Reading Sober Test Sampl
 for i in range(len(negativeTestSamples)):
     X_test.append(resize(io.imread(negativeTestSamples[i]), (nImageRows, nImageCols)))
     Y_test.append(0)
-    printProgressBar(count, len(negativeTestSamples), prefix = 'Reading Sober Test Samples  :', suffix = 'Complete', length = 50)
+    printProgressBar(count, len(negativeTestSamples), prefix = 'Reading Sober Test Samples   :', suffix = 'Complete', length = 50)
     count = count+1
 
 X_train = np.array(X_train)

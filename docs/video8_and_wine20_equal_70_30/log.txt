@@ -1,0 +1,344 @@
+[ebenezer@ebenezer internship]$ python 09_splitting.py && python 10_shuffling.py && python 10_shuffling.py && python 11_dataset_encoding.py && python 12_tensorflow_training.py && python 13_tensorflow_predict.py && python 14_tensorflow_confusion.py && python 16_logistical_regression_train.py && python 17_logistical_regression_predict.py  && python 18_logistical_regression_confusion.py 
+Random Test Subjects : 39 
+Test Percentage      : 30 
+Train Percentage     : 70 
+Test Images          : 1407 
+Train Images         : 3054 
+Total Files          : 4461
+Progress: |██████████████████████████████████████████████████| 100.0% Complete
+./dataset/7_main/train/sober/* :  |██████████████████████████████████████████████████| 100.0% Complete
+./dataset/7_main/train/drunk/* :  |██████████████████████████████████████████████████| 100.0% Complete
+./dataset/7_main/test/sober/*  :  |██████████████████████████████████████████████████| 100.0% Complete
+./dataset/7_main/test/drunk/*  :  |██████████████████████████████████████████████████| 100.0% Complete
+./dataset/7_main/train/sober/* :  |██████████████████████████████████████████████████| 100.0% Complete
+./dataset/7_main/train/drunk/* :  |██████████████████████████████████████████████████| 100.0% Complete
+./dataset/7_main/test/sober/*  :  |██████████████████████████████████████████████████| 100.0% Complete
+./dataset/7_main/test/drunk/*  :  |██████████████████████████████████████████████████| 100.0% Complete
+Using TensorFlow backend.
+2020-05-31 14:59:13.294033: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudart.so.10.2
+Drunk Train Samples : 1518
+Sober Train Samples : 1739
+Drunk Test Samples  : 547
+Sober Test Samples  : 657
+Adjusted Drunk Train Samples : 1510
+Adjusted Sober Train Samples : 1510
+Adjusted Drunk Test Samples  : 540
+Adjusted Sober Test Samples  : 540
+Reading Drunk Train Samples  : |██████████████████████████████████████████████████| 100.0% Complete
+Reading Sober Train Samples  : |██████████████████████████████████████████████████| 100.0% Complete
+Reading Drunk Test Samples   : |██████████████████████████████████████████████████| 100.0% Complete
+Reading Sober Test Samples   : |██████████████████████████████████████████████████| 100.0% Complete
+Saving Pickle Files
+Saved ./files/x_train.pickle
+Saved ./files/y_train.pickle
+Saved ./files/x_test.pickle
+Saved ./files/y_test.pickle
+Using TensorFlow backend.
+2020-05-31 14:59:54.603139: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudart.so.10.2
+Reading Files
+X_train Length : 3020
+Y_train Length : 3020
+X_test Length : 1080
+Y_test Length : 1080
+2020-05-31 15:00:02.818390: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcuda.so.1
+2020-05-31 15:00:03.128405: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:981] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2020-05-31 15:00:03.129022: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1561] Found device 0 with properties: 
+pciBusID: 0000:08:00.0 name: GeForce 920M computeCapability: 3.5
+coreClock: 0.954GHz coreCount: 2 deviceMemorySize: 1.96GiB deviceMemoryBandwidth: 13.41GiB/s
+2020-05-31 15:00:03.129156: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudart.so.10.2
+2020-05-31 15:00:03.210120: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcublas.so.10
+2020-05-31 15:00:03.247255: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcufft.so.10
+2020-05-31 15:00:03.257335: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcurand.so.10
+2020-05-31 15:00:03.330106: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcusolver.so.10
+2020-05-31 15:00:03.341854: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcusparse.so.10
+2020-05-31 15:00:03.471203: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudnn.so.7
+2020-05-31 15:00:03.471445: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:981] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2020-05-31 15:00:03.472339: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:981] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2020-05-31 15:00:03.473463: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1703] Adding visible gpu devices: 0
+2020-05-31 15:00:03.474984: I tensorflow/core/platform/cpu_feature_guard.cc:143] Your CPU supports instructions that this TensorFlow binary was not compiled to use: SSE3 SSE4.1 SSE4.2 AVX AVX2 FMA
+2020-05-31 15:00:03.505081: I tensorflow/core/platform/profile_utils/cpu_utils.cc:102] CPU Frequency: 2195950000 Hz
+2020-05-31 15:00:03.505470: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x555fdfeff920 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2020-05-31 15:00:03.505503: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2020-05-31 15:00:03.505760: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:981] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2020-05-31 15:00:03.506274: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1561] Found device 0 with properties: 
+pciBusID: 0000:08:00.0 name: GeForce 920M computeCapability: 3.5
+coreClock: 0.954GHz coreCount: 2 deviceMemorySize: 1.96GiB deviceMemoryBandwidth: 13.41GiB/s
+2020-05-31 15:00:03.506346: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudart.so.10.2
+2020-05-31 15:00:03.506396: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcublas.so.10
+2020-05-31 15:00:03.506437: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcufft.so.10
+2020-05-31 15:00:03.506473: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcurand.so.10
+2020-05-31 15:00:03.506506: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcusolver.so.10
+2020-05-31 15:00:03.506537: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcusparse.so.10
+2020-05-31 15:00:03.506562: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudnn.so.7
+2020-05-31 15:00:03.506658: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:981] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2020-05-31 15:00:03.507082: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:981] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2020-05-31 15:00:03.507471: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1703] Adding visible gpu devices: 0
+2020-05-31 15:00:03.507628: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudart.so.10.2
+2020-05-31 15:00:04.868999: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1102] Device interconnect StreamExecutor with strength 1 edge matrix:
+2020-05-31 15:00:04.869079: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1108]      0 
+2020-05-31 15:00:04.869103: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1121] 0:   N 
+2020-05-31 15:00:04.871855: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:981] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2020-05-31 15:00:04.872885: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:981] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2020-05-31 15:00:04.875564: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:981] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2020-05-31 15:00:04.875969: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1247] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 1691 MB memory) -> physical GPU (device: 0, name: GeForce 920M, pci bus id: 0000:08:00.0, compute capability: 3.5)
+2020-05-31 15:00:05.042904: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x555febd0dd10 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+2020-05-31 15:00:05.042970: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): GeForce 920M, Compute Capability 3.5
+2020-05-31 15:00:05.044863: I tensorflow/core/common_runtime/process_util.cc:147] Creating new thread pool with default inter op setting: 2. Tune using inter_op_parallelism_threads for best performance.
+Model: "sequential_1"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+conv2d_1 (Conv2D)            (None, 100, 100, 8)       224       
+_________________________________________________________________
+max_pooling2d_1 (MaxPooling2 (None, 50, 50, 8)         0         
+_________________________________________________________________
+dropout_1 (Dropout)          (None, 50, 50, 8)         0         
+_________________________________________________________________
+conv2d_2 (Conv2D)            (None, 50, 50, 16)        1168      
+_________________________________________________________________
+max_pooling2d_2 (MaxPooling2 (None, 25, 25, 16)        0         
+_________________________________________________________________
+dropout_2 (Dropout)          (None, 25, 25, 16)        0         
+_________________________________________________________________
+conv2d_3 (Conv2D)            (None, 25, 25, 16)        2320      
+_________________________________________________________________
+max_pooling2d_3 (MaxPooling2 (None, 12, 12, 16)        0         
+_________________________________________________________________
+conv2d_4 (Conv2D)            (None, 12, 12, 8)         1160      
+_________________________________________________________________
+max_pooling2d_4 (MaxPooling2 (None, 6, 6, 8)           0         
+_________________________________________________________________
+flatten_1 (Flatten)          (None, 288)               0         
+_________________________________________________________________
+dense_1 (Dense)              (None, 10)                2890      
+_________________________________________________________________
+dense_2 (Dense)              (None, 2)                 22        
+=================================================================
+Total params: 7,784
+Trainable params: 7,784
+Non-trainable params: 0
+_________________________________________________________________
+2020-05-31 15:00:05.405663: I tensorflow/core/profiler/lib/profiler_session.cc:159] Profiler session started.
+2020-05-31 15:00:05.407309: I tensorflow/core/profiler/internal/gpu/cupti_tracer.cc:1363] Profiler found 1 GPUs
+2020-05-31 15:00:05.457054: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcupti.so.10.2
+2020-05-31 15:00:05.695057: I tensorflow/core/profiler/internal/gpu/cupti_tracer.cc:1479] CUPTI activity buffer flushed
+Train on 3020 samples, validate on 1080 samples
+Epoch 1/10
+2020-05-31 15:00:08.234359: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcublas.so.10
+2020-05-31 15:00:09.091512: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudnn.so.7
+3020/3020 [==============================] - 16s 5ms/step - loss: 0.6817 - accuracy: 0.5546 - val_loss: 0.6675 - val_accuracy: 0.6611
+Epoch 2/10
+3020/3020 [==============================] - 8s 3ms/step - loss: 0.6506 - accuracy: 0.6265 - val_loss: 0.6156 - val_accuracy: 0.7537
+Epoch 3/10
+3020/3020 [==============================] - 8s 2ms/step - loss: 0.6055 - accuracy: 0.6685 - val_loss: 0.5620 - val_accuracy: 0.7611
+Epoch 4/10
+3020/3020 [==============================] - 8s 3ms/step - loss: 0.5762 - accuracy: 0.6937 - val_loss: 0.5356 - val_accuracy: 0.7796
+Epoch 5/10
+3020/3020 [==============================] - 8s 3ms/step - loss: 0.5546 - accuracy: 0.7123 - val_loss: 0.5108 - val_accuracy: 0.7935
+Epoch 6/10
+3020/3020 [==============================] - 7s 2ms/step - loss: 0.5216 - accuracy: 0.7397 - val_loss: 0.4971 - val_accuracy: 0.8009
+Epoch 7/10
+3020/3020 [==============================] - 7s 2ms/step - loss: 0.5019 - accuracy: 0.7474 - val_loss: 0.4988 - val_accuracy: 0.7833
+Epoch 8/10
+3020/3020 [==============================] - 7s 2ms/step - loss: 0.4752 - accuracy: 0.7679 - val_loss: 0.4858 - val_accuracy: 0.7944
+Epoch 9/10
+3020/3020 [==============================] - 7s 2ms/step - loss: 0.4619 - accuracy: 0.7692 - val_loss: 0.4844 - val_accuracy: 0.7926
+Epoch 10/10
+3020/3020 [==============================] - 8s 2ms/step - loss: 0.4508 - accuracy: 0.7781 - val_loss: 0.4838 - val_accuracy: 0.7852
+Model Fit : <keras.callbacks.callbacks.History object at 0x7f88d4c8a700>
+Score : [0.4838191341470789, 0.7851851582527161]
+Test Loss : 0.4838191341470789
+Test Accuracy : 0.7851851582527161
+Using TensorFlow backend.
+2020-05-31 15:01:36.263030: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudart.so.10.2
+2020-05-31 15:01:40.303232: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcuda.so.1
+2020-05-31 15:01:40.578477: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:981] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2020-05-31 15:01:40.578905: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1561] Found device 0 with properties: 
+pciBusID: 0000:08:00.0 name: GeForce 920M computeCapability: 3.5
+coreClock: 0.954GHz coreCount: 2 deviceMemorySize: 1.96GiB deviceMemoryBandwidth: 13.41GiB/s
+2020-05-31 15:01:40.578957: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudart.so.10.2
+2020-05-31 15:01:40.579071: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcublas.so.10
+2020-05-31 15:01:40.581994: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcufft.so.10
+2020-05-31 15:01:40.582123: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcurand.so.10
+2020-05-31 15:01:40.582197: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcusolver.so.10
+2020-05-31 15:01:40.583983: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcusparse.so.10
+2020-05-31 15:01:40.584079: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudnn.so.7
+2020-05-31 15:01:40.584216: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:981] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2020-05-31 15:01:40.584652: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:981] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2020-05-31 15:01:40.585012: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1703] Adding visible gpu devices: 0
+2020-05-31 15:01:40.585341: I tensorflow/core/platform/cpu_feature_guard.cc:143] Your CPU supports instructions that this TensorFlow binary was not compiled to use: SSE3 SSE4.1 SSE4.2 AVX AVX2 FMA
+2020-05-31 15:01:40.625274: I tensorflow/core/platform/profile_utils/cpu_utils.cc:102] CPU Frequency: 2195950000 Hz
+2020-05-31 15:01:40.629387: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x55a8a2df4a40 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2020-05-31 15:01:40.629442: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2020-05-31 15:01:40.630430: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:981] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2020-05-31 15:01:40.631126: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1561] Found device 0 with properties: 
+pciBusID: 0000:08:00.0 name: GeForce 920M computeCapability: 3.5
+coreClock: 0.954GHz coreCount: 2 deviceMemorySize: 1.96GiB deviceMemoryBandwidth: 13.41GiB/s
+2020-05-31 15:01:40.631198: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudart.so.10.2
+2020-05-31 15:01:40.631258: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcublas.so.10
+2020-05-31 15:01:40.631317: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcufft.so.10
+2020-05-31 15:01:40.631362: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcurand.so.10
+2020-05-31 15:01:40.631405: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcusolver.so.10
+2020-05-31 15:01:40.631451: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcusparse.so.10
+2020-05-31 15:01:40.631495: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudnn.so.7
+2020-05-31 15:01:40.631673: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:981] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2020-05-31 15:01:40.632427: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:981] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2020-05-31 15:01:40.633040: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1703] Adding visible gpu devices: 0
+2020-05-31 15:01:40.633132: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudart.so.10.2
+2020-05-31 15:01:43.898238: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1102] Device interconnect StreamExecutor with strength 1 edge matrix:
+2020-05-31 15:01:43.898286: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1108]      0 
+2020-05-31 15:01:43.898306: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1121] 0:   N 
+2020-05-31 15:01:43.898659: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:981] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2020-05-31 15:01:43.899118: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:981] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2020-05-31 15:01:43.899537: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:981] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2020-05-31 15:01:43.899895: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1247] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 1691 MB memory) -> physical GPU (device: 0, name: GeForce 920M, pci bus id: 0000:08:00.0, compute capability: 3.5)
+2020-05-31 15:01:43.901788: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x55a8aec0a050 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+2020-05-31 15:01:43.901837: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): GeForce 920M, Compute Capability 3.5
+2020-05-31 15:01:43.902184: I tensorflow/core/common_runtime/process_util.cc:147] Creating new thread pool with default inter op setting: 2. Tune using inter_op_parallelism_threads for best performance.
+2020-05-31 15:01:47.917080: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudnn.so.7
+2020-05-31 15:01:48.742604: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcublas.so.10
+Predicting sober Images |█████████████████████████████████████████████████-| 99.8% Complete
+Predicting drunk Images |█████████████████████████████████████████████████-| 99.8% Complete
+Errors : 16
+Predictions saved to ./files/tensorflow_prediction.pickle
+Accuracy Score : 0.7466329966329966
+Report         :
+               precision    recall  f1-score   support
+
+       drunk       0.66      0.90      0.76       534
+       sober       0.89      0.62      0.73       654
+
+    accuracy                           0.75      1188
+   macro avg       0.77      0.76      0.75      1188
+weighted avg       0.78      0.75      0.74      1188
+
+/home/ebenezer/.local/lib/python3.8/site-packages/sklearn/utils/validation.py:68: FutureWarning: Pass labels=['sober', 'drunk'] as keyword args. From version 0.25 passing these as positional arguments will result in an error
+  warnings.warn("Pass {} as keyword args. From version 0.25 "
+Icon theme "Numix-Circle" not found.
+Invalid Context= "Legacy" line for icon theme:  "/usr/share/icons/Adwaita/8x8/legacy/"
+Invalid Context= "Legacy" line for icon theme:  "/usr/share/icons/Adwaita/16x16/legacy/"
+Invalid Context= "UI" line for icon theme:  "/usr/share/icons/Adwaita/16x16/ui/"
+Invalid Context= "Legacy" line for icon theme:  "/usr/share/icons/Adwaita/22x22/legacy/"
+Invalid Context= "Legacy" line for icon theme:  "/usr/share/icons/Adwaita/24x24/legacy/"
+Invalid Context= "UI" line for icon theme:  "/usr/share/icons/Adwaita/24x24/ui/"
+Invalid Context= "Legacy" line for icon theme:  "/usr/share/icons/Adwaita/32x32/legacy/"
+Invalid Context= "UI" line for icon theme:  "/usr/share/icons/Adwaita/32x32/ui/"
+Invalid Context= "Legacy" line for icon theme:  "/usr/share/icons/Adwaita/48x48/legacy/"
+Invalid Context= "UI" line for icon theme:  "/usr/share/icons/Adwaita/48x48/ui/"
+Invalid Context= "Legacy" line for icon theme:  "/usr/share/icons/Adwaita/64x64/legacy/"
+Invalid Context= "UI" line for icon theme:  "/usr/share/icons/Adwaita/64x64/ui/"
+Invalid Context= "Legacy" line for icon theme:  "/usr/share/icons/Adwaita/96x96/legacy/"
+Invalid Context= "UI" line for icon theme:  "/usr/share/icons/Adwaita/96x96/ui/"
+Invalid Context= "Legacy" line for icon theme:  "/usr/share/icons/Adwaita/256x256/legacy/"
+Invalid Context= "Legacy" line for icon theme:  "/usr/share/icons/Adwaita/512x512/legacy/"
+Invalid Context= "Legacy" line for icon theme:  "/usr/share/icons/Adwaita/scalable/legacy/"
+Invalid Context= "UI" line for icon theme:  "/usr/share/icons/Adwaita/scalable/ui/"
+Tensorflow Confusion Matrix has been saved to ./docs/tensorflow_confusion.png
+Reading Files
+X_train Size : 3020
+Y_train Size : 3020
+Training Logistic Regression Model
+         This may take some time depending on your PC
+
+Verbose Logging Below:
+[Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
+RUNNING THE L-BFGS-B CODE
+
+           * * *
+
+Machine precision = 2.220D-16
+ N =        30001     M =           10
+ This problem is unconstrained.
+
+At X0         0 variables are exactly at the bounds
+
+At iterate    0    f=  2.09330D+03    |proj g|=  1.38282D+02
+
+At iterate   50    f=  8.34127D+01    |proj g|=  6.15358D+00
+
+At iterate  100    f=  5.38218D+01    |proj g|=  3.70808D-01
+
+At iterate  150    f=  5.15780D+01    |proj g|=  1.13867D-01
+
+At iterate  200    f=  5.13010D+01    |proj g|=  9.49903D-02
+
+At iterate  250    f=  5.12540D+01    |proj g|=  6.99988D-02
+
+At iterate  300    f=  5.12430D+01    |proj g|=  6.67387D-02
+
+At iterate  350    f=  5.12279D+01    |proj g|=  8.94745D-02
+
+At iterate  400    f=  5.12052D+01    |proj g|=  2.90592D-02
+
+At iterate  450    f=  5.11959D+01    |proj g|=  9.91294D-03
+
+At iterate  500    f=  5.11934D+01    |proj g|=  9.98433D-03
+
+At iterate  550    f=  5.11928D+01    |proj g|=  3.89532D-03
+
+At iterate  600    f=  5.11927D+01    |proj g|=  2.81701D-03
+
+At iterate  650    f=  5.11926D+01    |proj g|=  3.72339D-03
+
+At iterate  700    f=  5.11926D+01    |proj g|=  2.71090D-03
+
+           * * *
+
+Tit   = total number of iterations
+Tnf   = total number of function evaluations
+Tnint = total number of segments explored during Cauchy searches
+Skip  = number of BFGS updates skipped
+Nact  = number of active bounds at final generalized Cauchy point
+Projg = norm of the final projected gradient
+F     = final function value
+
+           * * *
+
+   N    Tit     Tnf  Tnint  Skip  Nact     Projg        F
+30001    725    816      1     0     0   2.000D-03   5.119D+01
+  F =   51.192618927681259     
+
+CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH             
+[Parallel(n_jobs=1)]: Done   1 out of   1 | elapsed:  4.1min finished
+Model has been trained
+Model has been saved to ./files/loginstic_regression.pickle
+Reading Files
+X_test Size : 1080
+Y_test Size : 1080
+Files Loaded
+Accuracy : 73.14814814814815
+Predictions saved to ./files/logistical_regression_prediction.pickle
+Accuracy Score : 0.7314814814814815
+Report         :
+               precision    recall  f1-score   support
+
+       drunk       0.73      0.74      0.73       540
+       sober       0.73      0.72      0.73       540
+
+    accuracy                           0.73      1080
+   macro avg       0.73      0.73      0.73      1080
+weighted avg       0.73      0.73      0.73      1080
+
+/home/ebenezer/.local/lib/python3.8/site-packages/sklearn/utils/validation.py:68: FutureWarning: Pass labels=['sober', 'drunk'] as keyword args. From version 0.25 passing these as positional arguments will result in an error
+  warnings.warn("Pass {} as keyword args. From version 0.25 "
+Icon theme "Numix-Circle" not found.
+Invalid Context= "Legacy" line for icon theme:  "/usr/share/icons/Adwaita/8x8/legacy/"
+Invalid Context= "Legacy" line for icon theme:  "/usr/share/icons/Adwaita/16x16/legacy/"
+Invalid Context= "UI" line for icon theme:  "/usr/share/icons/Adwaita/16x16/ui/"
+Invalid Context= "Legacy" line for icon theme:  "/usr/share/icons/Adwaita/22x22/legacy/"
+Invalid Context= "Legacy" line for icon theme:  "/usr/share/icons/Adwaita/24x24/legacy/"
+Invalid Context= "UI" line for icon theme:  "/usr/share/icons/Adwaita/24x24/ui/"
+Invalid Context= "Legacy" line for icon theme:  "/usr/share/icons/Adwaita/32x32/legacy/"
+Invalid Context= "UI" line for icon theme:  "/usr/share/icons/Adwaita/32x32/ui/"
+Invalid Context= "Legacy" line for icon theme:  "/usr/share/icons/Adwaita/48x48/legacy/"
+Invalid Context= "UI" line for icon theme:  "/usr/share/icons/Adwaita/48x48/ui/"
+Invalid Context= "Legacy" line for icon theme:  "/usr/share/icons/Adwaita/64x64/legacy/"
+Invalid Context= "UI" line for icon theme:  "/usr/share/icons/Adwaita/64x64/ui/"
+Invalid Context= "Legacy" line for icon theme:  "/usr/share/icons/Adwaita/96x96/legacy/"
+Invalid Context= "UI" line for icon theme:  "/usr/share/icons/Adwaita/96x96/ui/"
+Invalid Context= "Legacy" line for icon theme:  "/usr/share/icons/Adwaita/256x256/legacy/"
+Invalid Context= "Legacy" line for icon theme:  "/usr/share/icons/Adwaita/512x512/legacy/"
+Invalid Context= "Legacy" line for icon theme:  "/usr/share/icons/Adwaita/scalable/legacy/"
+Invalid Context= "UI" line for icon theme:  "/usr/share/icons/Adwaita/scalable/ui/"
+Logistical Regression Confusion Matrix has been saved to ./docs/logistical_regression_confusion.png
+ 

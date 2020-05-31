@@ -1,4 +1,4 @@
- import os
+import os
 from shutil import rmtree
 
 dir = "./dataset/6_combined/"

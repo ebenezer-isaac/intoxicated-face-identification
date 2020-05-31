@@ -24,10 +24,11 @@ states=["sober","drunk"]
 actual = []
 prediction = []
 for (image,label) in zip(X_test_2d,labels):
-
 	prediction.append(states[int(logisticRegr.predict(image.reshape(1,-1)))])
 	actual.append(states[int(label)])
 f = open("./files/logistical_regression_prediction.pickle", "wb")
 f.write(pickle.dumps([actual,prediction]))
 f.close()
+score = logisticRegr.score(X_test_2d,labels)
+print("Accuracy :",score*100)
 print("Predictions saved to ./files/logistical_regression_prediction.pickle")

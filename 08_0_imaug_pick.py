@@ -6,6 +6,7 @@ from files.utilities import printProgressBar
 
 main_limit = 20
 
+dir = "./dataset/6_combined/"
 states = ["sober_00","sober_01","drunk_02","drunk_03"]
 counter = 0
 printProgressBar(counter, 53*4*main_limit, prefix = 'Progress:', suffix = 'Complete', length = 50)

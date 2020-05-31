@@ -1,0 +1,212 @@
+[ebenezer@ebenezer internship]$ python 07_make_main_dir.py && python 08_0_imaug_pick.py && python 08_1_cluster_pick.py && python 09_splitting.py && python 10_shuffling.py && python 10_shuffling.py && python 11_dataset_encoding.py && python 12_tensorflow_training.py && python 13_tensorflow_predict.py && python 14_tensorflow_confusion.py && python 16_logistical_regression_train.py && python 17_logistical_regression_predict.py  && python 18_logistical_regression_confusion.py 
+Progress: |██████████████████████████████████████████████████| 100.0% Complete
+Progress: |██████████████████████████████████████████████████| 100.0% Complete
+Random Test Subjects : 24 
+Test Percentage      : 20 
+Train Percentage     : 80 
+Test Images          : 907 
+Train Images         : 3554 
+Total Files          : 4461
+Progress: |██████████████████████████████████████████████████| 100.0% Complete
+./dataset/7_main/train/sober/* :  |██████████████████████████████████████████████████| 100.0% Complete
+./dataset/7_main/train/drunk/* :  |██████████████████████████████████████████████████| 100.0% Complete
+./dataset/7_main/test/sober/*  :  |██████████████████████████████████████████████████| 100.0% Complete
+./dataset/7_main/test/drunk/*  :  |██████████████████████████████████████████████████| 100.0% Complete
+./dataset/7_main/train/sober/* :  |██████████████████████████████████████████████████| 100.0% Complete
+./dataset/7_main/train/drunk/* :  |██████████████████████████████████████████████████| 100.0% Complete
+./dataset/7_main/test/sober/*  :  |██████████████████████████████████████████████████| 100.0% Complete
+./dataset/7_main/test/drunk/*  :  |██████████████████████████████████████████████████| 100.0% Complete
+Using TensorFlow backend.
+2020-05-31 14:18:23.918334: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudart.so.10.2
+Drunk Train Samples : 1623
+Sober Train Samples : 1941
+Drunk Test Samples  : 442
+Sober Test Samples  : 455
+Adjusted Drunk Train Samples : 1620
+Adjusted Sober Train Samples : 1620
+Adjusted Drunk Test Samples  : 440
+Adjusted Sober Test Samples  : 440
+Reading Drunk Train Samples  : |██████████████████████████████████████████████████| 100.0% Complete
+Reading Sober Train Samples  : |██████████████████████████████████████████████████| 100.0% Complete
+Reading Drunk Test Samples   : |██████████████████████████████████████████████████| 100.0% Complete
+Reading Sober Test Samples   : |██████████████████████████████████████████████████| 100.0% Complete
+Saving Pickle Files
+Saved ./files/x_train.pickle
+Saved ./files/y_train.pickle
+Saved ./files/x_test.pickle
+Saved ./files/y_test.pickle
+Using TensorFlow backend.
+Reading Files
+X_train Length : 3240
+Y_train Length : 3240
+X_test Length : 880
+Y_test Length : 880
+
+Tune using inter_op_parallelism_threads for best performance.
+Model: "sequential_1"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+conv2d_1 (Conv2D)            (None, 100, 100, 8)       224       
+_________________________________________________________________
+max_pooling2d_1 (MaxPooling2 (None, 50, 50, 8)         0         
+_________________________________________________________________
+dropout_1 (Dropout)          (None, 50, 50, 8)         0         
+_________________________________________________________________
+conv2d_2 (Conv2D)            (None, 50, 50, 16)        1168      
+_________________________________________________________________
+max_pooling2d_2 (MaxPooling2 (None, 25, 25, 16)        0         
+_________________________________________________________________
+dropout_2 (Dropout)          (None, 25, 25, 16)        0         
+_________________________________________________________________
+conv2d_3 (Conv2D)            (None, 25, 25, 16)        2320      
+_________________________________________________________________
+max_pooling2d_3 (MaxPooling2 (None, 12, 12, 16)        0         
+_________________________________________________________________
+conv2d_4 (Conv2D)            (None, 12, 12, 8)         1160      
+_________________________________________________________________
+max_pooling2d_4 (MaxPooling2 (None, 6, 6, 8)           0         
+_________________________________________________________________
+flatten_1 (Flatten)          (None, 288)               0         
+_________________________________________________________________
+dense_1 (Dense)              (None, 10)                2890      
+_________________________________________________________________
+dense_2 (Dense)              (None, 2)                 22        
+=================================================================
+Total params: 7,784
+Trainable params: 7,784
+Non-trainable params: 0
+_________________________________________________________________
+
+Train on 3240 samples, validate on 880 samples
+Epoch 1/10
+3240/3240 [==============================] - 14s 4ms/step - loss: 0.7000 - accuracy: 0.5247 - val_loss: 0.6879 - val_accuracy: 0.5057
+Epoch 2/10
+3240/3240 [==============================] - 8s 2ms/step - loss: 0.6869 - accuracy: 0.5691 - val_loss: 0.6807 - val_accuracy: 0.6614
+Epoch 3/10
+3240/3240 [==============================] - 8s 2ms/step - loss: 0.6795 - accuracy: 0.5941 - val_loss: 0.6744 - val_accuracy: 0.5682
+Epoch 4/10
+3240/3240 [==============================] - 8s 2ms/step - loss: 0.6628 - accuracy: 0.6231 - val_loss: 0.6399 - val_accuracy: 0.7034
+Epoch 5/10
+3240/3240 [==============================] - 8s 2ms/step - loss: 0.6266 - accuracy: 0.6543 - val_loss: 0.5962 - val_accuracy: 0.6761
+Epoch 6/10
+3240/3240 [==============================] - 8s 2ms/step - loss: 0.5856 - accuracy: 0.6907 - val_loss: 0.5546 - val_accuracy: 0.7023
+Epoch 7/10
+3240/3240 [==============================] - 8s 2ms/step - loss: 0.5531 - accuracy: 0.7164 - val_loss: 0.5033 - val_accuracy: 0.7545
+Epoch 8/10
+3240/3240 [==============================] - 8s 3ms/step - loss: 0.5364 - accuracy: 0.7370 - val_loss: 0.5068 - val_accuracy: 0.7420
+Epoch 9/10
+3240/3240 [==============================] - 8s 2ms/step - loss: 0.5219 - accuracy: 0.7491 - val_loss: 0.4473 - val_accuracy: 0.8125
+Epoch 10/10
+3240/3240 [==============================] - 8s 2ms/step - loss: 0.4905 - accuracy: 0.7534 - val_loss: 0.4349 - val_accuracy: 0.8057
+Model Fit : <keras.callbacks.callbacks.History object at 0x7fe41f752700>
+Score : [0.43492790894074873, 0.8056818246841431]
+Test Loss : 0.43492790894074873
+Test Accuracy : 0.8056818246841431
+Using TensorFlow backend.
+Predicting sober Images |█████████████████████████████████████████████████-| 99.8% Complete
+Predicting drunk Images |█████████████████████████████████████████████████-| 99.8% Complete
+Errors : 3
+Predictions saved to ./files/tensorflow_prediction.pickle
+Accuracy Score : 0.7818791946308725
+Report         :
+               precision    recall  f1-score   support
+
+       drunk       0.71      0.93      0.81       439
+       sober       0.90      0.64      0.75       455
+
+    accuracy                           0.78       894
+   macro avg       0.81      0.78      0.78       894
+weighted avg       0.81      0.78      0.78       894
+
+Tensorflow Confusion Matrix has been saved to ./docs/tensorflow_confusion.png
+Reading Files
+X_train Size : 3240
+Y_train Size : 3240
+Training Logistic Regression Model
+         This may take some time depending on your PC
+
+Verbose Logging Below:
+[Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
+RUNNING THE L-BFGS-B CODE
+
+           * * *
+
+Machine precision = 2.220D-16
+ N =        30001     M =           10
+ This problem is unconstrained.
+
+At X0         0 variables are exactly at the bounds
+
+At iterate    0    f=  2.24580D+03    |proj g|=  1.38278D+02
+
+At iterate   50    f=  9.70891D+01    |proj g|=  5.21726D+00
+
+At iterate  100    f=  5.93950D+01    |proj g|=  5.39586D-01
+
+At iterate  150    f=  5.62718D+01    |proj g|=  5.99322D-01
+
+At iterate  200    f=  5.57535D+01    |proj g|=  3.10126D-01
+
+At iterate  250    f=  5.56047D+01    |proj g|=  4.01780D-01
+
+At iterate  300    f=  5.53755D+01    |proj g|=  9.75934D-02
+
+At iterate  350    f=  5.50744D+01    |proj g|=  1.63001D-01
+
+At iterate  400    f=  5.49417D+01    |proj g|=  2.83022D-02
+
+At iterate  450    f=  5.49085D+01    |proj g|=  1.53315D-02
+
+At iterate  500    f=  5.49032D+01    |proj g|=  5.46286D-03
+
+At iterate  550    f=  5.49025D+01    |proj g|=  7.52411D-03
+
+At iterate  600    f=  5.49024D+01    |proj g|=  1.01813D-02
+
+At iterate  650    f=  5.49022D+01    |proj g|=  1.24950D-02
+
+At iterate  700    f=  5.49019D+01    |proj g|=  5.71585D-03
+
+At iterate  750    f=  5.49017D+01    |proj g|=  2.15124D-03
+
+           * * *
+
+Tit   = total number of iterations
+Tnf   = total number of function evaluations
+Tnint = total number of segments explored during Cauchy searches
+Skip  = number of BFGS updates skipped
+Nact  = number of active bounds at final generalized Cauchy point
+Projg = norm of the final projected gradient
+F     = final function value
+
+           * * *
+
+   N    Tit     Tnf  Tnint  Skip  Nact     Projg        F
+30001    751    829      1     0     0   3.389D-03   5.490D+01
+  F =   54.901728041196840     
+
+CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH             
+[Parallel(n_jobs=1)]: Done   1 out of   1 | elapsed:  4.4min finished
+Model has been trained
+Model has been saved to ./files/loginstic_regression.pickle
+Reading Files
+X_test Size : 880
+Y_test Size : 880
+Files Loaded
+Accuracy : 69.88636363636364
+Predictions saved to ./files/logistical_regression_prediction.pickle
+Accuracy Score : 0.6988636363636364
+Report         :
+               precision    recall  f1-score   support
+
+       drunk       0.76      0.58      0.66       440
+       sober       0.66      0.82      0.73       440
+
+    accuracy                           0.70       880
+   macro avg       0.71      0.70      0.69       880
+weighted avg       0.71      0.70      0.69       880
+
+Logistical Regression Confusion Matrix has been saved to ./docs/logistical_regression_confusion.png
+[ebenezer@ebenezer internship]$ 
+ 
