@@ -1,15 +1,11 @@
  
-import glob, os
-from shutil import copyfile, rmtree
+import glob
+from shutil import copyfile
 from random import randint
 from files.utilities import printProgressBar
 
 main_limit = 20
 
-dir = "./dataset/6_combined/"
-if os.path.isdir(dir):
-	rmtree(dir)
-os.mkdir(dir)
 states = ["sober_00","sober_01","drunk_02","drunk_03"]
 counter = 0
 printProgressBar(counter, 53*4*main_limit, prefix = 'Progress:', suffix = 'Complete', length = 50)

@@ -64,6 +64,7 @@ for state in states:
 		printProgressBar(index, len(images), prefix = "Predicting "+state+" Images", suffix = "Complete", length = 50)
 	print("")
 print("Errors :",error_count)
-f = open("./files/confusion_matrix.pickle", "wb")
+f = open("./files/tensorflow_prediction.pickle", "wb")
 f.write(pickle.dumps([actual,predicted]))
 f.close()
+print("Predictions saved to ./files/tensorflow_prediction.pickle")
