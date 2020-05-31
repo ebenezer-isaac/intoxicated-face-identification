@@ -60,40 +60,45 @@ print("Adjusted Sober Test Samples  :",len(negativeTestSamples))
 count = 1
 printProgressBar(0, len(positiveTrainSamples), prefix = 'Reading Drunk Train Samples:', suffix = 'Complete', length = 50)
 for i in range(len(positiveTrainSamples)):
-    X_train.append(resize(io.imread(positiveTrainSamples[i]), (nImageRows, nImageCols)))
-    Y_train.append(1)
-    printProgressBar(count, len(positiveTrainSamples), prefix = 'Reading Drunk Train Samples  :', suffix = 'Complete', length = 50)
-    count = count+1
-
+    image = io.imread(positiveTrainSamples[i])
+    if len(image.shape) == 3 and image.shape[2]==3:
+        X_train.append(resize(image, (nImageRows, nImageCols)))
+        Y_train.append(1)
+        printProgressBar(count, len(positiveTrainSamples), prefix = 'Reading Drunk Train Samples  :', suffix = 'Complete', length = 50)
+        count = count+1
 
 count = 1
 printProgressBar(0, len(negativeTrainSamples), prefix = 'Reading Sober Train Samples:', suffix = 'Complete', length = 50)
 for i in range(len(negativeTrainSamples)):
-    X_train.append(resize(io.imread(negativeTrainSamples[i]), (nImageRows, nImageCols)))
-    Y_train.append(0)
-    printProgressBar(count, len(negativeTrainSamples), prefix = 'Reading Sober Train Samples  :', suffix = 'Complete', length = 50)
-    count = count+1
+    image = io.imread(negativeTrainSamples[i])
+    if len(image.shape) == 3 and image.shape[2]==3:
+        X_train.append(resize(image, (nImageRows, nImageCols)))
+        Y_train.append(0)
+        printProgressBar(count, len(negativeTrainSamples), prefix = 'Reading Sober Train Samples  :', suffix = 'Complete', length = 50)
+        count = count+1
 
+X_train = np.array(X_train)
+Y_train = np.array(Y_train)
 
 count = 1
 printProgressBar(0, len(positiveTestSamples), prefix = 'Reading Drunk Test Samples:', suffix = 'Complete', length = 50)
 for i in range(len(positiveTestSamples)):
-    X_test.append(resize(io.imread(positiveTestSamples[i]), (nImageRows, nImageCols)))
-    Y_test.append(1)
-    printProgressBar(count, len(positiveTestSamples), prefix = 'Reading Drunk Test Samples   :', suffix = 'Complete', length = 50)
-    count = count+1
-
+    image = io.imread(positiveTestSamples[i])
+    if len(image.shape) == 3 and image.shape[2]==3:
+        X_test.append(resize(image, (nImageRows, nImageCols)))
+        Y_test.append(1)
+        printProgressBar(count, len(positiveTestSamples), prefix = 'Reading Drunk Test Samples   :', suffix = 'Complete', length = 50)
+        count = count+1
 
 count = 1
 printProgressBar(0, len(negativeTestSamples), prefix = 'Reading Sober Test Samples:', suffix = 'Complete', length = 50)
 for i in range(len(negativeTestSamples)):
-    X_test.append(resize(io.imread(negativeTestSamples[i]), (nImageRows, nImageCols)))
-    Y_test.append(0)
-    printProgressBar(count, len(negativeTestSamples), prefix = 'Reading Sober Test Samples   :', suffix = 'Complete', length = 50)
-    count = count+1
-
-X_train = np.array(X_train)
-Y_train = np.array(Y_train)
+    image = io.imread(negativeTestSamples[i])
+    if len(image.shape) == 3 and image.shape[2]==3:
+        X_test.append(resize(image, (nImageRows, nImageCols)))
+        Y_test.append(0)
+        printProgressBar(count, len(negativeTestSamples), prefix = 'Reading Sober Test Samples   :', suffix = 'Complete', length = 50)
+        count = count+1
 
 X_test = np.array(X_test)
 Y_test = np.array(Y_test)

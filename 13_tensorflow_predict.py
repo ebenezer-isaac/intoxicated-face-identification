@@ -55,7 +55,7 @@ for state in states:
 			(x, y, w, h) = (result[0]["box"][0],result[0]["box"][1],result[0]["box"][2],result[0]["box"][3])
 			faceAligned = fa.align(image, cv2.cvtColor(image, cv2.COLOR_BGR2GRAY), dlib.rectangle(x,y,w+x,h+y))
 			face = np.expand_dims(faceAligned, axis=0)
-			prediction = model.predict(face)
+			prediction = model.predict(image)
 			maxindex = int(np.argmax(prediction))
 			actual.append(state)
 			predicted.append(binary_dict[maxindex])
