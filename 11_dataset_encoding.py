@@ -7,7 +7,6 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 from files.utilities import printProgressBar
 
 random_seed = 1
-batch_size = 16
 num_classes = 2
 nImageRows = 100
 nImageCols = 100
@@ -28,7 +27,7 @@ negativeTestSamples = glob.glob('./dataset/7_main/test/sober/*')
 print("Sober Test Samples  :",len(negativeTestSamples))
 
 #UNCOMMENT TO ADJUST SAMPLE SIZE TO BE EQUAL
-"""
+
 adjusted_train = len(positiveTrainSamples)
 if adjusted_train > len(negativeTrainSamples):
     adjusted_train = len(negativeTrainSamples)
@@ -55,7 +54,7 @@ while len(negativeTestSamples)>adjusted_test:
     rand = random.randint(0,len(negativeTestSamples)-1)
     del negativeTestSamples[rand]
 print("Adjusted Sober Test Samples  :",len(negativeTestSamples))
-"""
+
 
 count = 1
 printProgressBar(0, len(positiveTrainSamples), prefix = 'Reading Drunk Train Samples:', suffix = 'Complete', length = 50)
@@ -110,7 +109,6 @@ X_test = X_test.astype('float')
 for i in range(3):
     X_train[:,:,:,i] = (X_train[:,:,:,i]- mean[i]) / std[i]
     X_test[:,:,:,i] = (X_test[:,:,:,i]- mean[i]) / std[i]
-num_iterations = int(len(X_train)/batch_size) + 1
 Y_train = to_categorical(Y_train, num_classes)
 Y_test = to_categorical(Y_test, num_classes)
 

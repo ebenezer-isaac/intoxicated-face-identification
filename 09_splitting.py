@@ -4,7 +4,7 @@ from shutil import copyfile, rmtree
 from random import randint
 from files.utilities import printProgressBar
 
-train_percentage = 70
+train_percentage = 80
 
 files = sorted(glob.glob('./dataset/6_combined/*'))
 max_subject = 0

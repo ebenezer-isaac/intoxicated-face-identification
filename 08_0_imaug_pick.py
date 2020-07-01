@@ -4,7 +4,7 @@ from shutil import copyfile
 from random import randint
 from files.utilities import printProgressBar
 
-main_limit = 20
+main_limit = 50
 
 dir = "./dataset/6_combined/"
 states = ["sober_00","sober_01","drunk_02","drunk_03"]
